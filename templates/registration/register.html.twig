@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <div class="cssLogin fw-bold">
+        <div class="example-wrapper">
+
+            <h1 class="h1 mb-3 font-weight-normal">S'inscrire</h1>
+
+            {{ form_start(registrationForm) }}
+            <div>
+                {{ form_row(registrationForm.email, {
+                    label: 'Email:'
+                }) }}
+            </div>
+            <br>
+            <div>
+                {{ form_row(registrationForm.plainPassword.first, {
+                    label: 'Mot de passe:'
+                }) }}
+            </div>
+            <br>
+            <div>
+                {{ form_row(registrationForm.plainPassword.second, {
+                    label: 'Confirmation du mot de passe:'
+                }) }}
+            </div>
+            <br>
+            <div class="checkbox" style="float: right">
+                {{ form_row(registrationForm.agreeTerms, {
+                    label: 'Accepter nos conditions '
+                }) }}
+            </div>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-lg btn-primary" style="background-color:#474294; border-color: #2f2a78;
+">Register
+            </button>
+            <br>
+            {{ form_end(registrationForm) }}
+            <br>
+        </div>
+    </div>
+{% endblock %}

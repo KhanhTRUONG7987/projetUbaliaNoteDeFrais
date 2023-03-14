@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NoteDeFrais index{% endblock %}
+
+{% block body %}
+    <div style="border: 1px solid #5eb5e0; background:#BFE1DA;border-radius: 10px;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;padding: 5px;">
+        <br>
+        <div class="h1 mb-3 font-weight-normal" style="color: #0d5470">
+            <h1>Gestion des notes de frais</h1>
+        </div>
+        <br>
+        <table class="table table-hover text-black">
+            <thead>
+            <tr>
+{#                <th>Id</th>#}
+                <th>Date</th>
+                <th>DateEvent</th>
+                <th>Motif</th>
+                <th>Parking(€)</th>
+                <th>Transports(€)</th>
+                <th>Carburant(€)</th>
+                <th>Dejeuner(€)</th>
+                <th>Diner(€)</th>
+                <th>Hebergement(€)</th>
+                <th>KmParcourus</th>
+                <th>Indemnites(€)</th>
+                <th>Divers(€)</th>
+                <th>Info</th>
+{#                <th>Fichier</th>#}
+                <th>TOTAUX(€)</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for note_de_frai in note_de_frais %}
+                <tr>
+{#                    <td>{{ note_de_frai.id }}</td>#}
+                    <td>{{ note_de_frai.dateCreation ? note_de_frai.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ note_de_frai.dateEvenement ? note_de_frai.dateEvenement|date('Y-m-d') : '' }}</td>
+                    <td>{{ note_de_frai.motif }}</td>
+                    <td>{{ note_de_frai.peageParking }}</td>
+                    <td>{{ note_de_frai.transportsPublics }}</td>
+                    <td>{{ note_de_frai.carburant }}</td>
+                    <td>{{ note_de_frai.restoDejeuner }}</td>
+                    <td>{{ note_de_frai.restoDiner }}</td>
+                    <td>{{ note_de_frai.hebergement }}</td>
+                    <td>{{ note_de_frai.kmParcourus }}</td>
+                    <td>{{ note_de_frai.indemnites }}</td>
+                    <td>{{ note_de_frai.divers }}</td>
+                    <td>{{ note_de_frai.infoNote }}</td>
+{#                    <td>{{ note_de_frai.fichier }}</td>#}
+                    <td>{{ note_de_frai.totaux }}</td>
+                    <td>
+                        <a href="{{ path('note_show', {'id': note_de_frai.id}) }}">Afficher</a><br>
+                        <a href="{{ path('note_edit', {'id': note_de_frai.id}) }}">Modifier</a><br>
+                        <a href="{{ path('note_delete', {'id': note_de_frai.id}) }}">Supprimer</a>
+                        {#                                        {{ include('note_de_frais/supprimerUneNote.html.twig') }} #}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="16">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('note_new') }}">Create new</a>
+    </div>
+
+{% endblock %}

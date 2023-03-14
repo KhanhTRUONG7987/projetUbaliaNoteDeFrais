@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit NoteDeFrais{% endblock %}
+
+{% block body %}
+    <div class="cssForm">
+        <div class="container">
+            {{ form_start(form) }}
+            <br>
+            <div class="entry-title" style="color: #0d5470">
+                <h1>Modifier la note de frais</h1>
+            </div>
+            <br>
+            <div class="row g-3 aligncenter">
+                <div class="col">
+                    {{ form_row(form.dateCreation, {'attr': {'placeholder': "Date et heure de la création"}}) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form.restoDejeuner, {'attr': {'placeholder': "Resto - Déjeuner(€)"}}) }}
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(form.dateEvenement) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form.restoDiner) }}
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(form.motif) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form.hebergement) }}
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(form.peageParking) }}
+                </div>
+                <div class="col">
+                    <div class="row g-3">
+                        <div class="col">
+                            {{ form_row(form.kmParcourus) }}
+                        </div>
+                        <div class="col">
+                            {{ form_row(form.indemnites) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(form.transportsPublics) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form.divers) }}
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(form.carburant) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form.infoNote) }}
+                </div>
+            </div>
+            {{ form_end(form) }}
+            <br>
+            <a href="{{ path('note_index') }}">Retour</a>
+            <br>
+            {#        {{ include('note_de_frais/_form.html.twig', {'button_label': 'Enregistrer'}) }} #}
+        </div>
+    </div>
+{% endblock %}

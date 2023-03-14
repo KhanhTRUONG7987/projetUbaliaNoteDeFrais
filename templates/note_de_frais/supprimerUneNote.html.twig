@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NoteDeFrais{% endblock %}
+
+{% block body %}
+    <div class="cssForm">
+        <div class="container">
+            {{ form_start(supprimerUneNote) }}
+            <br>
+            <div class="entry-title" style="color: #0d5470">
+                <h1>Supprimer la note de frais</h1>
+            </div>
+            <br>
+
+            <div class="row g-3 aligncenter">
+                <div class="col">
+                    {{ form_row(supprimerUneNote.dateCreation, {'attr': {'placeholder': "Date et heure de la création"}}) }}
+                </div>
+                <div class="col">
+                    {{ form_row(supprimerUneNote.restoDejeuner, {'attr': {'placeholder': "Resto - Déjeuner(€)"}}) }}
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(supprimerUneNote.dateEvenement) }}
+                </div>
+                <div class="col">
+                    {{ form_row(supprimerUneNote.restoDiner) }}
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(supprimerUneNote.motif) }}
+                </div>
+                <div class="col">
+                    {{ form_row(supprimerUneNote.hebergement) }}
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(supprimerUneNote.peageParking) }}
+                </div>
+                <div class="col">
+                    <div class="row g-3">
+                        <div class="col">
+                            {{ form_row(supprimerUneNote.kmParcourus) }}
+                        </div>
+                        <div class="col">
+                            {{ form_row(supprimerUneNote.indemnites) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(supprimerUneNote.transportsPublics) }}
+                </div>
+                <div class="col">
+                    {{ form_row(supprimerUneNote.divers) }}
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(supprimerUneNote.carburant) }}
+                </div>
+                <div class="col">
+                    {{ form_row(supprimerUneNote.infoNote) }}
+                </div>
+            </div>
+        </div>
+        {{ form_end(supprimerUneNote) }}
+        <br>
+        <a href="{{ path('note_index') }}">Retour</a>
+        <br>
+    </div>
+{% endblock %}

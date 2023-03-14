@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle NoteDeFrais{% endblock %}
+
+{% block body %}
+    <div class="cssForm">
+        <div class="container">
+            {{ form_start(createNoteform) }}
+            <div class="entry-title" style="color: #0d5470">
+                <h1>Créer une note de frais</h1>
+            </div>
+            <div class="text-body" style="text-align: center">
+                <h6>(format de fichier PDF/PNG/JPG: prenomNOM_MMYYYY)</h6>
+            </div>
+            <br>
+            <div class="row g-3 aligncenter">
+                <div class="col">
+                    {{ form_row(createNoteform.dateCreation) }}
+                </div>
+                <div class="col">
+                    {{ form_row(createNoteform.restoDejeuner) }}
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(createNoteform.dateEvenement) }}
+                </div>
+                <div class="col">
+                    {{ form_row(createNoteform.restoDiner) }}
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(createNoteform.motif) }}
+                </div>
+                <div class="col">
+                    {{ form_row(createNoteform.hebergement) }}
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(createNoteform.peageParking) }}
+                </div>
+                <div class="col">
+                    <div class="row g-3">
+                        <div class="col">
+                            {{ form_row(createNoteform.kmParcourus) }}
+                        </div>
+                        <div class="col">
+                            {{ form_row(createNoteform.indemnites) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(createNoteform.transportsPublics) }}
+                </div>
+                <div class="col">
+                    {{ form_row(createNoteform.divers) }}
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(createNoteform.carburant) }}
+                </div>
+                <div class="col">
+                    {{ form_row(createNoteform.infoNote) }}
+                </div>
+            </div>
+            {{ form_end(createNoteform) }}
+        </div>
+        {% if is_granted('ROLE_ADMIN') %}
+            <br>
+            <a href="{{ path('note_index') }}">Retour</a>
+            <br>
+        {% endif %}
+    </div>
+
+{% endblock %}

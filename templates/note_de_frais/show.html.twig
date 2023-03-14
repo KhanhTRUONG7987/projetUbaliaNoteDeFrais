@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NoteDeFrais{% endblock %}
+
+{% block body %}
+    <div class="cssForm">
+        <div class="container">
+            {{ form_start(afficherNoteform) }}
+            <br>
+            <div class="entry-title" style="color: #0d5470">
+                <h1>Détails de la note de frais</h1>
+            </div>
+            <br>
+
+            <div class="row g-3 aligncenter">
+                <div class="col">
+                    {{ form_row(afficherNoteform.dateCreation, {'attr': {'placeholder': "Date et heure de la création"}}) }}
+                </div>
+                <div class="col">
+                    {{ form_row(afficherNoteform.restoDejeuner, {'attr': {'placeholder': "Resto - Déjeuner(€)"}}) }}
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(afficherNoteform.dateEvenement) }}
+                </div>
+                <div class="col">
+                    {{ form_row(afficherNoteform.restoDiner) }}
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(afficherNoteform.motif) }}
+                </div>
+                <div class="col">
+                    {{ form_row(afficherNoteform.hebergement) }}
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(afficherNoteform.peageParking) }}
+                </div>
+                <div class="col">
+                    <div class="row g-3">
+                        <div class="col">
+                            {{ form_row(afficherNoteform.kmParcourus) }}
+                        </div>
+                        <div class="col">
+                            {{ form_row(afficherNoteform.indemnites) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(afficherNoteform.transportsPublics) }}
+                </div>
+                <div class="col">
+                    {{ form_row(afficherNoteform.divers) }}
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col">
+                    {{ form_row(afficherNoteform.carburant) }}
+                </div>
+                <div class="col">
+                    {{ form_row(afficherNoteform.infoNote) }}
+                </div>
+            </div>
+            {{ form_end(afficherNoteform) }}
+            {% if is_granted('ROLE_ADMIN') %}
+                <br>
+                <a href="{{ path('note_index') }}">Retour</a>
+                <br>
+            {% endif %}
+            {#<br>
+            <a href="{{ path('note_edit', { 'id': note_de_frai.id }) }}">Modifier</a>
+            <br>
+            <br>#}
+{#            {{ include('note_de_frais/edit.html.twig') }}#}
+        </div>
+    </div>
+
+{#{{ include('note_de_frais/edit.html.twig') }}#}
+{% endblock %}
